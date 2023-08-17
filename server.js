@@ -7,7 +7,7 @@ varcorsOptions= {
     origin: "http://localhost:8881"
 }
 
-app.(cors(corspOptions));
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
@@ -19,5 +19,5 @@ app.get("/",(req,res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,() => {
-    console.log('Server funcionando na porta ${}');
+    console.log(`Server funcionando na porta ${PORT}`);
 })
