@@ -11,8 +11,12 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbconfig.PASSWORD,{
     min:dbConfig.pool.min,
     acquire:dbConfig.pool.acquire,
     idle:dbConfig.pool.idle
-
     }
+    });
 
+     const db = {};
 
-} );
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+  module.exports = db;
