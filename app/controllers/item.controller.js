@@ -112,7 +112,18 @@ exports.delete =(req, res) => {
            });
         });   
     };
-
 exports.deleteAll =(req, res) => {
-
+    Item.destroy({
+        where:{},
+        truncate: false
+    })
+    .then(nums => {
+        res.send({message: `${nums} Itens foram apagados com sucesso.` });
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+            err.message || "Algum erro ocorreu ao tentar apagar todos os itens."
+        });
+    });
 };
