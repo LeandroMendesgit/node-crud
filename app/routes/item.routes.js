@@ -1,13 +1,15 @@
+const { items } = require("../models/index.js");
+
 module.exports = app => {
-    const itens =require("../controllers/item.controller.js");
+    const items =require("../controllers/item.controller.js");
 
 var router = require("express").Router();
 
-router.post("/",items.create);
+router.post("/", items.create);
 
 router.get("/", items.findAll);
 
-router.get("/flammables", items.findAllPublished);
+router.get("/flammables", items.findAllFlammables);
 
 router.get("/id", items.findOne);
 
