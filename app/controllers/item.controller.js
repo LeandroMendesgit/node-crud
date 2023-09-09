@@ -11,9 +11,10 @@ exports.create = (req, res) => {
     }
 
     const item = {
-        title: req.body.title,
+        name: req.body.name,
         description: req.body.description,
-        published: req.body.published ? req.body.published : false
+        quantity: req.body.quantity,
+        is_flammable: req.body.is_flammable ? req.body.is_flammable : false
     };
 
     Item.create(item)
